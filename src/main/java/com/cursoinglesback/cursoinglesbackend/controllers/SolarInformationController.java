@@ -27,14 +27,14 @@ public class SolarInformationController {
     SolarData data = service.getLatestData();
     if (data == null) return null;
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-    String formatted = data.getTimestamp().format(formatter);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+    String timestamp = data.getTimestamp().format(formatter);
 
     return new SolarDataDto(
         data.getUvIndex(),
         data.getTemperature(),
         data.getLocation(),
-        formatted
+        timestamp
     );
     }
 

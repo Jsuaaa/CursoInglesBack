@@ -5,16 +5,16 @@ public class SolarDataDto {
     private double uvIndex;
     private double temperature;
     private String location;
-    private String formattedTimestamp; // ← aquí lo formateado
+    private String timestamp; // ← aquí lo formateado
     
     public SolarDataDto() {
     }
 
-    public SolarDataDto(double uvIndex, double temperature, String location, String formattedTimestamp) {
+    public SolarDataDto(double uvIndex, double temperature, String location, String timestamp) {
         this.uvIndex = uvIndex;
         this.temperature = temperature;
         this.location = location;
-        this.formattedTimestamp = formattedTimestamp;
+        this.timestamp = timestamp;
     }
 
     public double getUvIndex() {
@@ -41,12 +41,12 @@ public class SolarDataDto {
         this.location = location;
     }
 
-    public String getFormattedTimestamp() {
-        return formattedTimestamp;
+    public String getTimestamp() {
+        return timestamp;
     }
 
-    public void setFormattedTimestamp(String formattedTimestamp) {
-        this.formattedTimestamp = formattedTimestamp;
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
 }
