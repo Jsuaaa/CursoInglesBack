@@ -15,7 +15,7 @@ public class SensorService {
     private SolarDataRepository repository;
 
     public SolarData getLatestData() {
-        return repository.findLatest();
+        return repository.findFirstByOrderByTimestampDesc();
     }
 
     public SolarData saveData(SolarData data) {
