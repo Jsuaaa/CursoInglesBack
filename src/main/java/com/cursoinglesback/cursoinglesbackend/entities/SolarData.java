@@ -2,6 +2,7 @@ package com.cursoinglesback.cursoinglesbackend.entities;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +18,10 @@ public class SolarData {
     private Long id;
     private double uvIndex;
     private double temperature;
+
+    @Column(columnDefinition = "DATETIME")
     private LocalDateTime timestamp;
+    
     private String location;
     
     public SolarData() {
