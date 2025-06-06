@@ -1,5 +1,7 @@
 package com.cursoinglesback.cursoinglesbackend.controllers;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,12 @@ public class SolarInformationController {
     SolarData data = service.getLatestData();
     if (data == null) return null;
 
+    ZonedDateTime zoned = data.getTimestamp().atZone(ZoneId.of("UTC"))
+        .withZoneSameInstant(ZoneId.of("America/Bogota"));
+
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-    String timestamp = data.getTimestamp().format(formatter);
+    String timestamp = zoned.format(formatter);
+
 
     return new SolarDataDto(
         data.getUvIndex(),
